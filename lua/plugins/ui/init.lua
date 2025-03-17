@@ -50,7 +50,7 @@ function setup_ui_plugins(colors)
       "nvim-lualine/lualine.nvim",
       config = config_lualine
     },
-    scrollview
+    scrollview,
   }
 end
 
