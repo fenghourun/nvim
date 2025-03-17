@@ -85,6 +85,11 @@ lspconfig.ruff.setup {
   on_attach = on_attach,
   flags = lsp_flags
 }
+
+lspconfig.terraformls.setup {
+  on_attach = on_attach,
+  flags = lsp_flags
+}
 lspconfig.dockerls.setup {}
 lspconfig.cssls.setup {}
 lspconfig.leanls.setup { mappings = true }
