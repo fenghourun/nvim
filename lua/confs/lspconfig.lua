@@ -99,6 +99,7 @@ lspconfig.jsonls.setup {
   flags = lsp_flags,
   settings = {
     json = {
+      validate = { enable = true },
       schemas = {
         {
           fileMatch = { "package.json" },
