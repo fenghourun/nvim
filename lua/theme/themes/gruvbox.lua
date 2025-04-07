@@ -23,6 +23,7 @@ local base_colors = {
   dark_purple = "#c678dd",
   pink = "#d3859b",
 }
+
 local M = {
   -- Base Colors
   black = base_colors.black,

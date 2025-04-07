@@ -78,6 +78,12 @@ function set_keymaps()
   -- vim.keymap.set("n", "<S-l>", "<Cmd> lua require'dap'.step_into() <CR>", opts)
   -- vim.keymap.set('n', '<S-j>', '<Cmd> lua require\'dap\'.step_over() <CR>', opts)
   -- vim.keymap.set("n", "<leader>dc", "<Cmd> DapContinue <CR>")
+
+  -- Dont save deletions
+  vim.keymap.set("n", "c", '"_c', { noremap = true })
+  vim.keymap.set("n", "d", '"_d', { noremap = true })
+  vim.keymap.set("v", "d", '"_d', { noremap = true })
+  vim.keymap.set("v", "c", '"_c', { noremap = true })
 end
 
 return set_keymaps
