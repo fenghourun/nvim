@@ -1,4 +1,4 @@
-function set_keymaps()
+local function set_keymaps()
   -- Leader
   vim.g.mapleader = " "
 
