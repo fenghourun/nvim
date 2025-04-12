@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/JohnnyMorganz/stylua
+    rev: v0.20.0  # Use latest version
+    hooks:
+      - id: stylua
+        args: []
+        additional_dependencies: []
+
+  - repo: https://github.com/Calinou/pre-commit-luacheck
+    rev: v1.0.0
+    hooks:
+      - id: luacheck

@@ -1,10 +1,10 @@
 local config_ibl = function()
-  local ibl_present, ibl = pcall(require, 'ibl')
+  local ibl_present, ibl = pcall(require, "ibl")
   if not ibl_present then
     return
   end
 
-  ibl.setup({
+  ibl.setup {
     indent = {
       char = "│",
       tab_char = "│",
@@ -18,9 +18,9 @@ local config_ibl = function()
         "lazy",
         "mason",
         "notify",
-      }
-    }
-  })
+      },
+    },
+  }
 end
 
 return config_ibl

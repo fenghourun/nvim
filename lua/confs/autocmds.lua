@@ -10,26 +10,26 @@ local function set_autocmds()
       set_colorscheme()
       config_lualine()
       config_ibl()
-    end
+    end,
   })
 
   -- Dont continue comments on next line after enter
-  vim.cmd([[autocmd FileType * set formatoptions-=cro]])
+  vim.cmd [[autocmd FileType * set formatoptions-=cro]]
 
   -- Set syntax to shell for envrc
-  vim.cmd([[autocmd BufNewFile,BufRead *.envrc set syntax=sh]])
+  vim.cmd [[autocmd BufNewFile,BufRead *.envrc set syntax=sh]]
 
   vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
-      vim.highlight.on_yank({
-        higroup = 'Visual',
+      vim.highlight.on_yank {
+        higroup = "Visual",
         timeout = 300,
-      })
-    end
+      }
+    end,
   })
 
   -- Formatting
-  vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 end
 
 return set_autocmds

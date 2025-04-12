@@ -1,5 +1,5 @@
 local config_barbar = function()
-  local barbar_present, barbar = pcall(require, 'barbar')
+  local barbar_present, barbar = pcall(require, "barbar")
   if not barbar_present then
     return
   end
@@ -10,10 +10,10 @@ local config_barbar = function()
       buffer_number = false,
       filetype = {
         custom_colors = false,
-        enabled = true
+        enabled = true,
       },
-      separator_at_end = false
-    }
+      separator_at_end = false,
+    },
   }
 end
 

@@ -1,4 +1,4 @@
-local get_colors = require("theme.colors")
+local get_colors = require "theme.colors"
 return function()
   local colors = get_colors()
   -- " TREESITTER
@@ -14,7 +14,11 @@ return function()
   vim.api.nvim_set_hl(0, "@keyword", { fg = colors.keyword })
   vim.api.nvim_set_hl(0, "@keyword.modifier.typescript", { fg = colors.type })
   vim.api.nvim_set_hl(0, "@keyword.import.typescript", { fg = colors.keyword_import_typescript })
-  vim.api.nvim_set_hl(0, "@keyword.coroutine.typescript", { fg = colors.keyword_coroutine_typescript })
+  vim.api.nvim_set_hl(
+    0,
+    "@keyword.coroutine.typescript",
+    { fg = colors.keyword_coroutine_typescript }
+  )
 
   vim.api.nvim_set_hl(0, "@field", { fg = colors.blue })
   vim.api.nvim_set_hl(0, "@variable", { fg = colors.variable })

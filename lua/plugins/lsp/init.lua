@@ -1,4 +1,4 @@
-local cmp = require('plugins.lsp.cmp')
+local cmp = require "plugins.lsp.cmp"
 local lazydev = require "plugins.lsp.lazydev"
 local mason = require "plugins.lsp.mason"
 local treesitter_context = require "plugins.lsp.nvim-treesitter-context"
@@ -35,7 +35,7 @@ return {
     "folke/ts-comments.nvim",
     opts = {},
     event = "VeryLazy",
-    enabled = vim.fn.has("nvim-0.10.0") == 1,
+    enabled = vim.fn.has "nvim-0.10.0" == 1,
   },
   {
     "folke/trouble.nvim",
@@ -73,5 +73,5 @@ return {
         desc = "Quickfix List (Trouble)",
       },
     },
-  }
+  },
 }

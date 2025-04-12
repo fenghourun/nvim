@@ -1,4 +1,4 @@
-local get_colors = require 'theme.colors'
+local get_colors = require "theme.colors"
 
 return function()
   local colors = get_colors()

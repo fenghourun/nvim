@@ -2,7 +2,7 @@ return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",
   opts = function()
-    local actions = require("telescope.actions")
+    local actions = require "telescope.actions"
 
     return {
       defaults = {
@@ -12,7 +12,15 @@ return {
         entry_prefix = "   ",
         sorting_strategy = "ascending",
         -- @TODO doesn't work
-        file_ignore_patterns = { "node_modules/", "**/package%-lock.json", ".git/", "dist/", ".turbo/", "lazy%-lock.json", "target/" },
+        file_ignore_patterns = {
+          "node_modules/",
+          "**/package%-lock.json",
+          ".git/",
+          "dist/",
+          ".turbo/",
+          "lazy%-lock.json",
+          "target/",
+        },
         layout_strategy = "vertical",
         layout_config = {
           horizontal = {
@@ -53,16 +61,16 @@ return {
       },
       extensions = {
         fzf = {
-          fuzzy = true,                   -- false will only do exact matching
+          fuzzy = true, -- false will only do exact matching
           override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true,    -- override the file sorter
-          case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
         },
       },
     }
   end,
   init = function()
-    require("telescope").load_extension("fzf")
+    require("telescope").load_extension "fzf"
   end,
   dependencies = {
     {

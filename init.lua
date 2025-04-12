@@ -2,12 +2,11 @@
 
 require "latex"
 
-local set_options     = require "options"
-local set_autocmds    = require "confs.autocmds"
-local set_keymaps     = require "confs.keymaps"
+local set_options = require "options"
+local set_autocmds = require "confs.autocmds"
+local set_keymaps = require "confs.keymaps"
 local set_colorscheme = require "colorscheme"
-local setup_plugins   = require "plugins"
-local get_colors      = require 'theme.colors'
+local setup_plugins = require "plugins"
 
 set_colorscheme()
 set_options()
@@ -16,7 +15,7 @@ set_keymaps()
 setup_plugins()
 
 if vim.g.vscode then
-  vim.cmd([[
+  vim.cmd [[
     nnoremap zc :call VSCodeNotify('editor.fold')<CR>
     nnoremap zC :call VSCodeNotify('editor.foldRecursively')<CR>
     nnoremap zo :call VSCodeNotify('editor.unfold')<CR>
@@ -32,5 +31,5 @@ if vim.g.vscode then
 
     nmap <expr> j MoveCursor('j')
     nmap <expr> k MoveCursor('k')
-  ]])
+  ]]
 end

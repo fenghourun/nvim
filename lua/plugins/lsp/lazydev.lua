@@ -8,12 +8,12 @@ return {
       { path = "luvit-meta/library", words = { "vim%.uv" } },
       "LazyVim",
       -- Only load the lazyvim library when the `LazyVim` global is found
-      { path = "LazyVim",            words = { "LazyVim" } },
+      { path = "LazyVim", words = { "LazyVim" } },
     },
   },
   -- always enable unless `vim.g.lazydev_enabled = false`
   -- This is the default
-  enabled = function(root_dir)
+  enabled = function()
     return vim.g.lazydev_enabled == nil and true or vim.g.lazydev_enabled
-  end
+  end,
 }

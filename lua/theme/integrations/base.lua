@@ -1,4 +1,4 @@
-function set_base_colors()
+local function set_base_colors()
   local get_colors = require "theme.colors"
   local colors = get_colors()
 
@@ -21,7 +21,7 @@ function set_base_colors()
   vim.api.nvim_set_hl(0, "Todo", { fg = colors.black, bg = colors.yellow })
   vim.api.nvim_set_hl(0, "Folded", { fg = colors.grey })
   -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { gui = nil })
-  vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = colors.diagnostic_unnecessary, gui = underline })
+  vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = colors.diagnostic_unnecessary })
 
   -- Built in
   vim.api.nvim_set_hl(0, "Type", { fg = colors.yellow })
@@ -52,7 +52,7 @@ function set_base_colors()
   -- Cursor
   vim.api.nvim_set_hl(0, "Cursor", { bg = colors.light_white })
   vim.api.nvim_set_hl(0, "CursorLine", { bg = colors.cursor_line_background })
-  vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.white, })
+  vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.white })
   vim.api.nvim_set_hl(0, "LineNr", { fg = colors.line_nr })
 
   -- Diagnostic
@@ -61,7 +61,11 @@ function set_base_colors()
   vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "DiagnosticError", { fg = colors.diagnostics_error })
   vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true })
-  vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { fg = colors.diagnostics_error, underline = true })
+  vim.api.nvim_set_hl(
+    0,
+    "DiagnosticUnderlineError",
+    { fg = colors.diagnostics_error, underline = true }
+  )
   vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { fg = colors.white })
 end
 

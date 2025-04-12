@@ -117,8 +117,7 @@ local M = {
   diagnostic_unnecessary = base_colors.grey,
   --
   barbar_current = "#8ec07c",
-  search = "#f0dae3"
+  search = "#f0dae3",
 }
-
 
 return M

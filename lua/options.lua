@@ -1,21 +1,22 @@
-function set_options()
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    -- Disable underline, it's very annoying
-    underline = true,
-    virtual_text = false,
-    -- Enable virtual text, override spacing to 4
-    -- virtual_text = {spacing = 4},
-    -- Use a function to dynamically turn signs off
-    -- and on, using buffer local variables
-    signs = true,
-    update_in_insert = false,
-  })
+local function set_options()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] =
+    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+      -- Disable underline, it's very annoying
+      underline = true,
+      virtual_text = false,
+      -- Enable virtual text, override spacing to 4
+      -- virtual_text = {spacing = 4},
+      -- Use a function to dynamically turn signs off
+      -- and on, using buffer local variables
+      signs = true,
+      update_in_insert = false,
+    })
 
   vim.wo.wrap = true
 
   -- Folding
   function _G.customFoldText()
-    local line = vim.fn.getline(vim.v.foldstart)
+    -- local line = vim.fn.getline(vim.v.foldstart)
     local line_count = vim.v.foldend - vim.v.foldstart + 1
     return "     " .. line_count .. " lines"
   end
@@ -29,7 +30,7 @@ function set_options()
   vim.opt.laststatus = 3
 
   -- transparent background
-  vim.o.pumblend = 5;
+  vim.o.pumblend = 5
 
   -- Case insensitive search
   vim.opt.ignorecase = true
@@ -83,7 +84,7 @@ function set_options()
   vim.g.neovide_cursor_trail_size = 0
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scroll_animation_length = 0.1
-  vim.g.neovide_theme = 'auto'
+  vim.g.neovide_theme = "auto"
 end
 
 return set_options

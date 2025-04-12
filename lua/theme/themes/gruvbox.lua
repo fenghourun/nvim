@@ -85,7 +85,7 @@ local M = {
   barbar_inactive_index = base_colors.background_light,
   which_key_background = base_colors.background_dark,
   diagnostics_error = "#f14c4c",
-  diagnostic_unnecessary = '#a79d82',
+  diagnostic_unnecessary = "#a79d82",
   ibl_line = "#2f302e",
   ibl_scope = base_colors.red,
   scrollview = "#3b3937",
@@ -118,7 +118,7 @@ local M = {
   copilot_completion = "#737272",
   --
   barbar_current = "#8ec07c",
-  search = "#393527"
+  search = "#393527",
 }
 
 return M

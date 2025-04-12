@@ -1,6 +1,5 @@
-function setup_ui_plugins(colors)
+local function setup_ui_plugins()
   local alpha = require "plugins.ui.alpha"
-  local barbar = require "plugins.ui.barbar"
   local config_noice = require "plugins.ui.noice"
   local gitsigns = require "plugins.ui.gitsigns"
   local colorizer = require "plugins.ui.colorizer"
@@ -12,8 +11,8 @@ function setup_ui_plugins(colors)
 
   return {
     {
-      'nvim-tree/nvim-web-devicons',
-      config = setup_devicons
+      "nvim-tree/nvim-web-devicons",
+      config = setup_devicons,
     },
     {
 
@@ -24,13 +23,13 @@ function setup_ui_plugins(colors)
         "MunifTanjim/nui.nvim",
         --   If not available, we use `mini` as the fallback
         -- "rcarriga/nvim-notify",
-      }
+      },
     },
     alpha,
     {
       "folke/which-key.nvim",
       event = "VeryLazy",
-      opts = {}
+      opts = {},
     },
     gitsigns,
     { "goolord/alpha-nvim" },
@@ -38,17 +37,17 @@ function setup_ui_plugins(colors)
     {
       "romgrk/barbar.nvim",
       config = config_barbar,
-      dependencies = { 'nvim-tree/nvim-web-devicons', },
+      dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
       "lukas-reineke/indent-blankline.nvim",
       main = "ibl",
-      config = config_ibl
+      config = config_ibl,
     },
     colorizer,
     {
       "nvim-lualine/lualine.nvim",
-      config = config_lualine
+      config = config_lualine,
     },
     scrollview,
   }

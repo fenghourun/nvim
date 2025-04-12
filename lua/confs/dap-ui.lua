@@ -1,8 +1,10 @@
 local present, dap_ui = pcall(require, "dapui")
 
-if not present then return end
+if not present then
+  return
+end
 
-dap_ui.setup({
+dap_ui.setup {
   icons = { expanded = "▾", collapsed = "▸", current_frame = "▸" },
   mappings = {
     -- Use a table to apply multiple mappings
@@ -23,7 +25,7 @@ dap_ui.setup({
   },
   -- Expand lines larger than the window
   -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7") == 1,
+  expand_lines = vim.fn.has "nvim-0.7" == 1,
   -- Layouts define sections of the screen to place windows.
   -- The position can be "left", "right", "top" or "bottom".
   -- The size specifies the height/width depending on position. It can be an Int
@@ -36,8 +38,8 @@ dap_ui.setup({
       elements = {
         -- Elements can be strings or table with id and size keys.
         { id = "breakpoints", size = 0.25 },
-        { id = "stacks",      size = 0.25 },
-        { id = "scopes",      size = 0.5 },
+        { id = "stacks", size = 0.25 },
+        { id = "scopes", size = 0.5 },
         -- "watches",
       },
       size = 0.35,
@@ -69,8 +71,8 @@ dap_ui.setup({
     },
   },
   floating = {
-    max_height = nil,  -- These can be integers or a float between 0 and 1.
-    max_width = nil,   -- Floats will be treated as percentage of your screen.
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil, -- Floats will be treated as percentage of your screen.
     border = "single", -- Border style. Can be "single", "double" or "rounded"
     mappings = {
       close = { "q", "<Esc>" },
@@ -80,5 +82,5 @@ dap_ui.setup({
   render = {
     max_type_length = nil, -- Can be integer or nil.
     max_value_lines = 100, -- Can be integer or nil.
-  }
-})
+  },
+}

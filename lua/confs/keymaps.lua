@@ -32,10 +32,10 @@ local function set_keymaps()
   vim.keymap.set("n", "_", "<cmd> :vertical resize -1<cr>", opts)
 
   -- Toggle through command suggestions
-  vim.cmd([[
+  vim.cmd [[
 	cnoremap <expr> <C-k> wildmenumode() ? "\<C-P>" : "\<Up>"
 	cnoremap <expr> <C-j> wildmenumode() ? "\<C-N>" : "\<Down>"
-]])
+]]
 
   -- Show all highlights
   vim.keymap.set("n", "<leader>hi", "<cmd>so $VIMRUNTIME/syntax/hitest.vim<cr><cr>", opts)

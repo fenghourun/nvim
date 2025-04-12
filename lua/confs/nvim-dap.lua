@@ -2,35 +2,37 @@ local dap_present, dap = pcall(require, "dap")
 local dapui_present, dap_ui = pcall(require, "dapui")
 local dvc_present, dap_vscode_js = pcall(require, "dap-vscode-js")
 
-if not dap_present or not dvc_present or not dapui_present then return end
+if not dap_present or not dvc_present or not dapui_present then
+  return
+end
 
-dap_vscode_js.setup({
-  adapters = { 'pwa-node', 'node-terminal'},
+dap_vscode_js.setup {
+  adapters = { "pwa-node", "node-terminal" },
   log_file_path = "(stdpath cache)/dap_vscode_js.log",
   -- log_file_level = vim.log.levels.DEBUG,
   -- log_console_level = vim.log.levels.TRACE,
-})
-
-dap.set_log_level('TRACE')
-
-dap.adapters.javascript = {
-  type = 'executable';
-  command = 'node';
-  args = { '--inspect' };
 }
 
-for _, language in ipairs({ "typescript", "javascript" }) do
+dap.set_log_level "TRACE"
+
+dap.adapters.javascript = {
+  type = "executable",
+  command = "node",
+  args = { "--inspect" },
+}
+
+for _, language in ipairs { "typescript", "javascript" } do
   dap.configurations[language] = {
     {
       type = "pwa-node",
       request = "attach",
       name = "Attach",
-      processId = require('dap.utils').pick_process,
+      processId = require("dap.utils").pick_process,
       cwd = "${workspaceFolder}",
-      address = '127.0.0.1',
-      port = '9222',
+      address = "127.0.0.1",
+      port = "9222",
       continueOnAttach = true,
-      websocketAddress = 'ws://127.0.0.1:9229'
+      websocketAddress = "ws://127.0.0.1:9229",
     },
     {
       type = "pwa-node",
@@ -38,7 +40,7 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       name = "Launch file",
       program = "${file}",
       cwd = "${workspaceFolder}",
-      args = {"direnv allow .", "npm run devmocha"}
+      args = { "direnv allow .", "npm run devmocha" },
     },
     {
       type = "pwa-node",
@@ -53,14 +55,14 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       cwd = "${workspaceFolder}",
       console = "integratedTerminal",
       internalConsoleOptions = "neverOpen",
-    }
+    },
   }
 end
 
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='🟢', texthl='', linehl='', numhl=''})
+vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "", linehl = "", numhl = "" })
+vim.fn.sign_define("DapStopped", { text = "🟢", texthl = "", linehl = "", numhl = "" })
 
-dap.listeners.after.event_initialized['dapui_config'] = function()
+dap.listeners.after.event_initialized["dapui_config"] = function()
   dap_ui.open()
 end
 
@@ -71,4 +73,3 @@ end
 -- dap.listeners.before.event_exited["dapui_config"] = function()
 --   dap_ui.close()
 -- end
-

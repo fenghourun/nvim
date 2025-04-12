@@ -27,7 +27,12 @@ return {
     -- Footer
     local function footer()
       local version = vim.version()
-      local nvim_version_info = "  Neovim v" .. version.major .. "." .. version.minor .. "." .. version.patch
+      local nvim_version_info = "  Neovim v"
+        .. version.major
+        .. "."
+        .. version.minor
+        .. "."
+        .. version.patch
       return nvim_version_info
     end
 
@@ -35,5 +40,5 @@ return {
     dashboard.section.footer.opts.hl = "AlphaFooter"
 
     alpha_nvim.setup(dashboard.opts)
-  end
+  end,
 }
