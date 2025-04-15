@@ -7,12 +7,14 @@ local set_autocmds = require "confs.autocmds"
 local set_keymaps = require "confs.keymaps"
 local set_colorscheme = require "colorscheme"
 local setup_plugins = require "plugins"
+local setup_lsp = require "lsp"
 
 set_colorscheme()
 set_options()
 set_autocmds()
 set_keymaps()
 setup_plugins()
+setup_lsp()
 
 if vim.g.vscode then
   vim.cmd [[

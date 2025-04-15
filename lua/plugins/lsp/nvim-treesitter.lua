@@ -30,6 +30,7 @@ return {
         "markdown_inline",
         "vim",
         "vimdoc",
+        "regex",
       },
       auto_install = true,
       sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)

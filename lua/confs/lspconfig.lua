@@ -22,13 +22,6 @@ local lsp_flags = {
   debounce_text_changes = 100,
 }
 
-lspconfig.ts_ls.setup {
-  on_attach = function(client, _bufnr)
-    client.server_capabilities.documentFormattingProvider = false
-  end,
-  flags = lsp_flags,
-}
-
 lspconfig.lua_ls.setup {
   on_init = function(client)
     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
@@ -69,22 +62,8 @@ lspconfig.vimls.setup {
   flags = lsp_flags,
 }
 
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
+-- TODO: See whythis doesn't work when using native neovim lsp
 lspconfig.biome.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-lspconfig.ruff.setup {
   on_attach = on_attach,
   flags = lsp_flags,
 }
