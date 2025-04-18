@@ -1,6 +1,7 @@
 -- luacheck: globals vim
 globals = {
-  'vim'
+  'vim',
+  'use'
 }
 
 std = "lua51"

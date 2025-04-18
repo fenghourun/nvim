@@ -24,7 +24,6 @@ local base_colors = {
 
 local M = {
   -- Base Colors
-  black = "#020c1a",
   background_dark = "#001418",
   background_light = "#002B36",
   background_lighter = "#073642",
