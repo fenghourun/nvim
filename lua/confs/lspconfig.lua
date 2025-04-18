@@ -14,7 +14,7 @@ local on_attach = function(client, bufnr)
   })
 end
 
-local on_attach_no_format = function(client, _bufnr)
+local on_attach_no_format = function(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
@@ -30,28 +30,30 @@ lspconfig.lua_ls.setup {
         -- (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
       },
-      -- Make the server aware of Neovim runtime files
-      workspace = {
-        checkThirdParty = false,
-        library = {
-          vim.env.VIMRUNTIME,
-          -- Depending on the usage, you might want to add additional paths here.
-          -- "${3rd}/luv/library"
-          -- "${3rd}/busted/library",
-        },
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        -- library = vim.api.nvim_get_runtime_file("", true)
-      },
     })
   end,
   on_attach = on_attach,
   settings = {
     Lua = {
+      type = {
+        -- Enable type annotations
+        weakUnionCheck = false,
+        weakNilCheck = false,
+        castNumberToInteger = false,
+      },
       diagnostics = {
         globals = { "vim" },
       },
       completion = {
         callSnippet = "Replace",
+      },
+      workspace = {
+        -- Make the server aware of Neovim runtime files
+        library = {
+          vim.env.VIMRUNTIME,
+        },
+        maxPreload = 100000,
+        preloadFileSize = 10000,
       },
     },
   },
