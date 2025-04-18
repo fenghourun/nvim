@@ -62,9 +62,10 @@ local function set_base_colors()
   vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "DiagnosticError", { fg = colors.diagnostics_error })
 
-  vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true })
-  vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", {})
-  vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { fg = colors.white })
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", {})
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { underline = true })
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineWarn", {})
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", {})
 
   vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.diagnostics_error })
 end
