@@ -5,6 +5,9 @@ local function setup_lsp()
     "rust_analyzer",
     "biome",
     "ts_ls",
+    "terraformls",
+    "gh_actions_language_server",
+    "actionlint",
   }
 end
 

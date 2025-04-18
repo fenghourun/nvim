@@ -13,6 +13,7 @@ return {
       "somesass_ls",
       "lua_language_server",
       "ruff",
+      "actionlint",
     },
   },
 }
