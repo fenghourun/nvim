@@ -4,7 +4,7 @@ local function set_base_colors()
 
   vim.api.nvim_set_hl(0, "Normal", { fg = colors.text_primary, bg = colors.background })
   vim.api.nvim_set_hl(0, "Constant", { fg = colors.constant })
-  vim.api.nvim_set_hl(0, "NormalFloat", { bg = colors.background_dark })
+  vim.api.nvim_set_hl(0, "NormalFloat", { fg = colors.text_primary, bg = colors.background_dark })
   vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.red })
   vim.api.nvim_set_hl(0, "DefinitionBorder", { fg = colors.red })
   vim.api.nvim_set_hl(0, "Delimiter", { fg = colors.delimiter })
@@ -20,8 +20,8 @@ local function set_base_colors()
   vim.api.nvim_set_hl(0, "Search", { bg = colors.search })
   vim.api.nvim_set_hl(0, "Todo", { fg = colors.black, bg = colors.yellow })
   vim.api.nvim_set_hl(0, "Folded", { fg = colors.grey })
-  -- vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", { gui = nil })
-  vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = colors.diagnostic_unnecessary })
+
+  -- Diagnostics
 
   -- Built in
   vim.api.nvim_set_hl(0, "Type", { fg = colors.yellow })
@@ -58,15 +58,15 @@ local function set_base_colors()
   -- Diagnostic
   vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = colors.dark_purple })
   vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = colors.yellow })
+  vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { fg = colors.diagnostic_unnecessary })
   vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "DiagnosticError", { fg = colors.diagnostics_error })
+
   vim.api.nvim_set_hl(0, "DiagnosticUnderlineHint", { underline = true })
-  vim.api.nvim_set_hl(
-    0,
-    "DiagnosticUnderlineError",
-    { fg = colors.diagnostics_error, underline = true }
-  )
+  vim.api.nvim_set_hl(0, "DiagnosticUnderlineError", {})
   vim.api.nvim_set_hl(0, "DiagnosticUnderlineInfo", { fg = colors.white })
+
+  vim.api.nvim_set_hl(0, "DiagnosticFloatingError", { fg = colors.diagnostics_error })
 end
 
 return set_base_colors
