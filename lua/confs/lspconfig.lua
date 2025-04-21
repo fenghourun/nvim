@@ -32,7 +32,6 @@ lspconfig.lua_ls.setup {
       },
     })
   end,
-  on_attach = on_attach,
   settings = {
     Lua = {
       type = {
