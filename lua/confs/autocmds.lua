@@ -28,8 +28,8 @@ local function set_autocmds()
     end,
   })
 
-  -- Formatting
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+  -- Handled by conform
+  -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 end
 
 return set_autocmds

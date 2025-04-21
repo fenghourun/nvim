@@ -7,7 +7,7 @@ return {
     local opts = {
       ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
-        --lua = { "stylua" },
+        lua = { "stylua" },
       },
       format_on_save = {
         -- These options will be passed to conform.format()
