@@ -3,9 +3,7 @@ return {
   lazy = false,
   cmd = "ConformInfo",
   opts = function()
-    ---@class ConformOpts
     local opts = {
-      ---@type table<string, conform.FormatterUnit[]>
       formatters_by_ft = {
         lua = { "stylua" },
       },

@@ -63,12 +63,6 @@ lspconfig.vimls.setup {
   flags = lsp_flags,
 }
 
--- TODO: See whythis doesn't work when using native neovim lsp
-lspconfig.biome.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
 lspconfig.terraformls.setup {
   on_attach = on_attach,
   flags = lsp_flags,
