@@ -21,8 +21,6 @@ local function set_base_colors()
   vim.api.nvim_set_hl(0, "Todo", { fg = colors.black, bg = colors.yellow })
   vim.api.nvim_set_hl(0, "Folded", { fg = colors.grey })
 
-  -- Diagnostics
-
   -- Built in
   vim.api.nvim_set_hl(0, "Type", { fg = colors.yellow })
   vim.api.nvim_set_hl(0, "Special", { fg = colors.special })

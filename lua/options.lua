@@ -43,7 +43,7 @@ local function set_options()
   vim.opt.number = true
   vim.opt.relativenumber = true
 
-  vim.opt.cursorline = true
+  vim.opt.cursorline = false
 
   -- Tabs and spaces
   vim.opt.tabstop = 2
