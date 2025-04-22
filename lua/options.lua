@@ -43,7 +43,7 @@ local function set_options()
   vim.opt.number = true
   vim.opt.relativenumber = true
 
-  vim.opt.cursorline = false
+  vim.opt.cursorline = true
 
   -- Tabs and spaces
   vim.opt.tabstop = 2
@@ -85,6 +85,7 @@ local function set_options()
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_theme = "auto"
+  vim.g.neovide_transparency = 0.75
 end
 
 return set_options
