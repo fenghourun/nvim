@@ -14,6 +14,7 @@ return {
       "lua_language_server",
       "ruff",
       "actionlint",
+      "bash-lanaguage-server",
     },
   },
 }
