@@ -97,7 +97,7 @@ local M = {
   scrollview = "#3b3937",
 
   -- Neo Tree
-  neo_tree_background = base_colors.background,
+  neo_tree_background = "none", -- base_colors.background,
   neo_tree_modified = "#e2a974",
   neo_tree_root_background = "#1a304d",
   neo_tree_winbar_background = "#1a304d",
