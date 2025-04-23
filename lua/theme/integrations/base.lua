@@ -5,6 +5,11 @@ local function set_base_colors()
   vim.api.nvim_set_hl(0, "Normal", { fg = colors.text_primary, bg = colors.background })
   vim.api.nvim_set_hl(0, "Constant", { fg = colors.constant })
   vim.api.nvim_set_hl(0, "NormalFloat", { fg = colors.text_primary, bg = colors.background_dark })
+  vim.api.nvim_set_hl(
+    0,
+    "FloatBorder",
+    { fg = colors.background_dark, bg = colors.background_dark }
+  )
   vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.red })
   vim.api.nvim_set_hl(0, "DefinitionBorder", { fg = colors.red })
   vim.api.nvim_set_hl(0, "Delimiter", { fg = colors.delimiter })
