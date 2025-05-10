@@ -3,7 +3,7 @@ return function()
     local colors = require "theme.themes.quietLight"
     return colors
   else
-    local colors = require "theme.themes.gruvbox"
+    local colors = require "theme.themes.green"
     return colors
   end
 end
