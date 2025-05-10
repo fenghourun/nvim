@@ -9,7 +9,7 @@ local base_colors = {
   white = "#f1f1f1",
   yellow = "#fefdc8",
   background_light = "#1e362f",
-  background = "#1e2021",
+  background = "#1c1f20",
   background_dark = "#201f1f",
   foreground = "#c7c7c7",
   selection = "#29302b",
@@ -65,7 +65,7 @@ local M = {
   telescope_background = base_colors.background_light,
   noice_background = base_colors.background_light,
   -- Lualine
-  lualine_background = base_colors.background,
+  lualine_background = base_colors.background_dark,
   lualine_background_dark = "#2a75a6",
   lualine_mode_background = base_colors.background_dark,
   lualine_normal_foreground = base_colors.red,
