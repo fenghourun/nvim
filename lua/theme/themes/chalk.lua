@@ -10,7 +10,7 @@ local base_colors = {
   yellow = "#fefdc8",
   background_light = "#1e362f",
   background = "#1c1f20",
-  background_dark = "#201f1f",
+  background_dark = "#182b26",
   foreground = "#c7c7c7",
   selection = "#29302b",
   brown = "#453326",
@@ -104,6 +104,8 @@ local M = {
   -- CMP
   cmp_text = base_colors.grey,
   winbar_background = base_colors.background,
+
+  -- Syntax highlighting
   keyword = "#fe8018",
   keyword_import_typescript = "#fb4834",
   keyword_coroutine_typescript = "#fb4834",
