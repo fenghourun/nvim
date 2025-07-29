@@ -6,14 +6,9 @@ local function setup_ui_plugins()
   local config_lualine = require "plugins.ui.lualine"
   local config_ibl = require "plugins.ui.indent-blankline"
   local scrollview = require "plugins.ui.scrollview"
-  local setup_devicons = require "plugins.ui.nvim-web-devicons"
   local config_barbar = require "plugins.ui.barbar"
 
   return {
-    {
-      "nvim-tree/nvim-web-devicons",
-      config = setup_devicons,
-    },
     {
 
       "folke/noice.nvim",
@@ -33,7 +28,13 @@ local function setup_ui_plugins()
     },
     gitsigns,
     { "goolord/alpha-nvim" },
-    { "echasnovski/mini.nvim", version = "*" },
+    {
+      "echasnovski/mini.nvim",
+      version = "*",
+      config = function()
+        require("mini.icons").mock_nvim_web_devicons()
+      end,
+    },
     {
       "romgrk/barbar.nvim",
       config = config_barbar,

@@ -1,5 +1,5 @@
 local telescope = require "plugins.coding.telescope"
-local neotree = require "plugins.coding.neo-tree"
+local neotree = require "plugins.coding.snacks-explorer"
 local conform = require "plugins.coding.conform"
 local lean = require "plugins.coding.lean"
 

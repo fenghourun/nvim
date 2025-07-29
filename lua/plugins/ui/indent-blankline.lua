@@ -14,7 +14,6 @@ local config_ibl = function()
       filetypes = {
         "help",
         "alpha",
-        "neo-tree",
         "lazy",
         "mason",
         "notify",

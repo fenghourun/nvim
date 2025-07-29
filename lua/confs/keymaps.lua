@@ -48,7 +48,7 @@ local function set_keymaps()
   vim.keymap.set("n", "<C-f>", "<Cmd>Telescope live_grep<CR>", opts)
 
   -- Neo Tree
-  vim.keymap.set("n", "<Leader>e", "<cmd>Neotree toggle reveal_force_cwd<cr>", opts)
+  vim.keymap.set("n", "<Leader>e", "<cmd>lua Snacks.explorer() <cr>", opts)
 
   -- Bufferline
   vim.keymap.set("n", "<Leader>1", "<Cmd>BufferGoto 1<CR>", opts)
