@@ -2,3 +2,4 @@ plugin
 .vscode
 **/*/dist
 .luarc.json
+lua/plugins/meta.lua
