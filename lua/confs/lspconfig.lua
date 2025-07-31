@@ -69,7 +69,6 @@ lspconfig.terraformls.setup {
 }
 lspconfig.dockerls.setup {}
 lspconfig.cssls.setup {}
-lspconfig.leanls.setup { mappings = true }
 lspconfig.somesass_ls.setup {}
 lspconfig.jsonls.setup {
   on_attach = on_attach_no_format,

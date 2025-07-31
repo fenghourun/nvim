@@ -8,9 +8,15 @@ return {
     -- you also will likely want nvim-cmp or some completion engine
   },
 
-  -- see details below for full configuration options
+  ---@module 'lean'
+  ---@type lean.Config
   opts = {
     lsp = {},
+    infoview = {
+      goal_markers = {
+        accomplished = "",
+      },
+    },
     mappings = true,
   },
 }
