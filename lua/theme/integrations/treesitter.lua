@@ -7,6 +7,7 @@ return function()
   vim.api.nvim_set_hl(0, "@constant", { fg = colors.constant })
   vim.api.nvim_set_hl(0, "@KeywordFunction", { fg = colors.purple })
   vim.api.nvim_set_hl(0, "@function", { fg = colors.func, bold = true })
+  vim.api.nvim_set_hl(0, "Function", { fg = colors.func, bold = true })
   vim.api.nvim_set_hl(0, "@function.call", { fg = colors.func })
   vim.api.nvim_set_hl(0, "@function.builtin", { fg = colors.blue })
 
