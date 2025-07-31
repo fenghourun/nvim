@@ -12,7 +12,6 @@ local set_cmp = require "theme.integrations.cmp"
 local set_ibl = require "theme.integrations.indent-blankline"
 local set_noice = require "theme.integrations.noice"
 local set_scrollview = require "theme.integrations.scrollview"
-local set_copilot = require "theme.integrations.copilot"
 
 -- Custom
 local set_winbar = require "theme.winbar"
@@ -34,7 +33,6 @@ local function set_colorscheme()
   set_ibl()
   set_noice()
   set_scrollview()
-  set_copilot()
 end
 
 return set_colorscheme
