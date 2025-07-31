@@ -12,10 +12,8 @@ return {
   ---@type lean.Config
   opts = {
     lsp = {},
-    infoview = {
-      goal_markers = {
-        accomplished = "",
-      },
+    goal_markers = {
+      accomplished = "",
     },
     mappings = true,
   },

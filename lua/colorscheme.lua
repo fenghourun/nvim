@@ -1,6 +1,6 @@
 -- Base theme
 local set_base_colors = require "theme.integrations.base"
-local set_neo_tree = require "theme.integrations.snacks-explorer"
+local set_neo_tree = require "theme.integrations.snacks"
 local set_telescope = require "theme.integrations.telescope"
 local set_barbar = require "theme.integrations.barbar"
 local set_treesitter = require "theme.integrations.treesitter"

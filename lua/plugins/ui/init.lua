@@ -14,11 +14,11 @@ local function setup_ui_plugins()
       "folke/noice.nvim",
       event = "VeryLazy",
       config = config_noice,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        --   If not available, we use `mini` as the fallback
-        -- "rcarriga/nvim-notify",
-      },
+      -- dependencies = {
+      -- "MunifTanjim/nui.nvim",
+      --   If not available, we use `mini` as the fallback
+      -- "rcarriga/nvim-notify",
+      -- },
     },
     alpha,
     {
@@ -32,12 +32,15 @@ local function setup_ui_plugins()
       "echasnovski/mini.nvim",
       version = "*",
       config = function()
-        require("mini.icons").setup()
+        local mini_icons = require "mini.icons"
+        mini_icons.setup()
+        mini_icons.mock_nvim_web_devicons()
       end,
     },
     {
       "romgrk/barbar.nvim",
       config = config_barbar,
+      -- TODO: Use mini.icons instead
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     {
