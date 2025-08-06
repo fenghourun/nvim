@@ -85,8 +85,7 @@ local function set_options()
   vim.g.neovide_cursor_animation_length = 0
   vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_theme = "auto"
-  vim.g.neovide_opacity = 0.75
-  -- vim.g.neovide_background_color = "#182B26"
+  vim.g.neovide_opacity = 0.9
 end
 
 return set_options
