@@ -2,7 +2,12 @@ local function set_base_colors()
   local get_colors = require "theme.colors"
   local colors = get_colors()
 
-  vim.api.nvim_set_hl(0, "Normal", { fg = colors.text_primary, bg = colors.background })
+  if vim.g.neovide then
+    -- Manually set background color in neovide instead of using terminal color
+    vim.api.nvim_set_hl(0, "Normal", { fg = colors.text_primary, bg = colors.background_dark })
+  else
+    vim.api.nvim_set_hl(0, "Normal", { fg = colors.text_primary, bg = colors.background })
+  end
   vim.api.nvim_set_hl(0, "Constant", { fg = colors.constant })
   vim.api.nvim_set_hl(0, "NormalFloat", { fg = colors.text_primary, bg = colors.background_dark })
   vim.api.nvim_set_hl(
