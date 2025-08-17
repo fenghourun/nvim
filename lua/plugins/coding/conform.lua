@@ -6,6 +6,8 @@ return {
     local opts = {
       formatters_by_ft = {
         lua = { "stylua" },
+        tsx = { "biome" },
+        ts = { "biome" },
       },
       format_on_save = {
         -- These options will be passed to conform.format()

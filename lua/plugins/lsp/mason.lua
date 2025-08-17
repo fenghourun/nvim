@@ -15,6 +15,7 @@ return {
       "ruff",
       "actionlint",
       "bash-lanaguage-server",
+      "dotenv-linter",
     },
   },
 }
