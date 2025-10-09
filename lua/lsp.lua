@@ -8,6 +8,7 @@ local function setup_lsp()
     "terraformls",
     "gh_actions_language_server",
     "lean_language_server",
+    "prismals",
     "actionlint",
     "bashls",
     "stylelint",

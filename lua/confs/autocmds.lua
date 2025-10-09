@@ -28,8 +28,7 @@ local function set_autocmds()
     end,
   })
 
-  -- Handled by conform
-  -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
