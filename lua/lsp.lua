@@ -10,6 +10,7 @@ local function setup_lsp()
     "lean_language_server",
     "actionlint",
     "bashls",
+    "stylelint",
   }
 end
 

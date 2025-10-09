@@ -78,6 +78,9 @@ local function set_options()
   vim.opt.timeoutlen = 500
   vim.opt.mouse = "nvi"
 
+  -- backup
+  vim.opt.backupcopy = "yes"
+
   -- vim.opt.winbar = "%{%v:lua.require('winbar').eval()%}"
   vim.g.neovide_scale_factor = 1.3
   vim.opt.linespace = 3
