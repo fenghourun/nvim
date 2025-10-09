@@ -14,10 +14,6 @@ local on_attach = function(client, bufnr)
   })
 end
 
-local on_attach_no_format = function(client)
-  client.server_capabilities.documentFormattingProvider = false
-end
-
 local lsp_flags = {
   debounce_text_changes = 100,
 }
@@ -71,7 +67,7 @@ lspconfig.dockerls.setup {}
 lspconfig.cssls.setup {}
 lspconfig.somesass_ls.setup {}
 lspconfig.jsonls.setup {
-  on_attach = on_attach_no_format,
+  on_attach = on_attach,
   flags = lsp_flags,
   settings = {
     json = {
