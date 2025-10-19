@@ -89,6 +89,13 @@ local function set_options()
   vim.g.neovide_scroll_animation_length = 0.1
   vim.g.neovide_theme = "auto"
   vim.g.neovide_opacity = 0.9
+
+  -- treat env files as bash
+  vim.filetype.add {
+    pattern = {
+      [".*%.env.*"] = "sh", -- Treat .env files as 'sh' filetype
+    },
+  }
 end
 
 return set_options
