@@ -1,16 +1,10 @@
 local function set_options()
-  vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-      -- Disable underline, it's very annoying
-      underline = true,
-      virtual_text = false,
-      -- Enable virtual text, override spacing to 4
-      -- virtual_text = {spacing = 4},
-      -- Use a function to dynamically turn signs off
-      -- and on, using buffer local variables
-      signs = true,
-      update_in_insert = false,
-    })
+  vim.diagnostic.config {
+    underline = true,
+    virtual_text = false,
+    signs = true,
+    update_in_insert = false,
+  }
 
   vim.wo.wrap = true
 
@@ -64,7 +58,6 @@ local function set_options()
 
   vim.opt.clipboard = "unnamedplus"
   vim.opt.scrolloff = 10
-  vim.opt.laststatus = 3
 
   -- Left padding
   vim.opt.numberwidth = 1

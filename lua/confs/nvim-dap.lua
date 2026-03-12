@@ -13,7 +13,7 @@ dap_vscode_js.setup {
   -- log_console_level = vim.log.levels.TRACE,
 }
 
-dap.set_log_level "TRACE"
+dap.set_log_level "WARN"
 
 dap.adapters.javascript = {
   type = "executable",

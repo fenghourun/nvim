@@ -19,19 +19,6 @@ return {
   cmp,
   lazydev,
   {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    build = ":MasonUpdate",
-    -- TODO: from lazyvim
-    -- opts_extend = { "ensure_installed" },
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "shfmt",
-      },
-    },
-  },
-  {
     "folke/ts-comments.nvim",
     opts = {},
     event = "VeryLazy",

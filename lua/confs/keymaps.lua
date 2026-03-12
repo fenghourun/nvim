@@ -14,7 +14,7 @@ local function set_keymaps()
 
   vim.keymap.set("n", "<C-s>", "<Cmd>w<CR>", opts)
 
-  -- Close qukcflix
+  -- Close quickfix
   vim.keymap.set("n", "<leader>c", "<Cmd>cclose<CR>", opts)
 
   -- Clear search
@@ -39,9 +39,6 @@ local function set_keymaps()
 
   -- Show all highlights
   vim.keymap.set("n", "<leader>hi", "<cmd>so $VIMRUNTIME/syntax/hitest.vim<cr><cr>", opts)
-
-  -- WSL copy to windows clipboard
-  vim.keymap.set("v", "<Leader>y", ":<C-U>'<,'>w !clip.exe<cr><cr>", opts)
 
   -- Telescope
   vim.keymap.set("n", "<C-p>", "<Cmd>Telescope find_files<CR>", opts)

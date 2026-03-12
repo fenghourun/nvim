@@ -14,8 +14,6 @@ set_colorscheme()
 set_options()
 set_autocmds()
 set_keymaps()
-setup_plugins()
-setup_lsp()
 
 if vim.g.vscode then
   vim.cmd [[
@@ -35,4 +33,7 @@ if vim.g.vscode then
     nmap <expr> j MoveCursor('j')
     nmap <expr> k MoveCursor('k')
   ]]
+else
+  setup_plugins()
+  setup_lsp()
 end

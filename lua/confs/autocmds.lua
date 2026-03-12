@@ -14,10 +14,20 @@ local function set_autocmds()
   })
 
   -- Dont continue comments on next line after enter
-  vim.cmd [[autocmd FileType * set formatoptions-=cro]]
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "*",
+    callback = function()
+      vim.opt_local.formatoptions:remove { "c", "r", "o" }
+    end,
+  })
 
   -- Set syntax to shell for envrc
-  vim.cmd [[autocmd BufNewFile,BufRead *.envrc set syntax=sh]]
+  vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "*.envrc",
+    callback = function()
+      vim.bo.syntax = "sh"
+    end,
+  })
 
   vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
@@ -28,14 +38,21 @@ local function set_autocmds()
     end,
   })
 
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
-
+  -- Format on save via LSP
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
-
       if not client then
         return
+      end
+
+      if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = args.buf,
+          callback = function()
+            vim.lsp.buf.format { bufnr = args.buf, async = false }
+          end,
+        })
       end
     end,
   })

@@ -4,30 +4,10 @@ if not present then
   return
 end
 
-local on_attach = function(client, bufnr)
-  client.server_capabilities.documentFormattingProvider = true
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    buffer = bufnr,
-    callback = function()
-      vim.lsp.buf.format { bufnr = bufnr, async = false }
-    end,
-  })
-end
-
-local on_attach_no_format = function(client)
-  client.server_capabilities.documentFormattingProvider = false
-end
-
-local lsp_flags = {
-  debounce_text_changes = 100,
-}
-
 lspconfig.lua_ls.setup {
   on_init = function(client)
     client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
       runtime = {
-        -- Tell the language server which version of Lua you're using
-        -- (most likely LuaJIT in the case of Neovim)
         version = "LuaJIT",
       },
     })
@@ -35,7 +15,6 @@ lspconfig.lua_ls.setup {
   settings = {
     Lua = {
       type = {
-        -- Enable type annotations
         weakUnionCheck = false,
         weakNilCheck = false,
         castNumberToInteger = false,
@@ -47,7 +26,6 @@ lspconfig.lua_ls.setup {
         callSnippet = "Replace",
       },
       workspace = {
-        -- Make the server aware of Neovim runtime files
         library = {
           vim.env.VIMRUNTIME,
         },
@@ -58,21 +36,10 @@ lspconfig.lua_ls.setup {
   },
 }
 
-lspconfig.vimls.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-
-lspconfig.terraformls.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-}
-lspconfig.dockerls.setup {}
-lspconfig.cssls.setup {}
-lspconfig.somesass_ls.setup {}
 lspconfig.jsonls.setup {
-  on_attach = on_attach_no_format,
-  flags = lsp_flags,
+  on_attach = function(client)
+    client.server_capabilities.documentFormattingProvider = false
+  end,
   settings = {
     json = {
       validate = { enable = true },
@@ -89,5 +56,3 @@ lspconfig.jsonls.setup {
     },
   },
 }
-
-lspconfig.taplo.setup {}

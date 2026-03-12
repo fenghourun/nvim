@@ -1,7 +1,11 @@
 return {
   "williamboman/mason.nvim",
+  cmd = "Mason",
+  build = ":MasonUpdate",
   opts = {
     ensure_installed = {
+      "stylua",
+      "shfmt",
       "lua_ls",
       "rust_analyzer",
       "taplo",
@@ -10,11 +14,10 @@ return {
       "biome",
       "typescript-language-server",
       "json-lsp",
-      "somesass_ls",
-      "lua_language_server",
+      "some-sass-language-server",
       "ruff",
       "actionlint",
-      "bash-lanaguage-server",
+      "bash-language-server",
       "dotenv-linter",
     },
   },

@@ -12,6 +12,11 @@ local function setup_lsp()
     "actionlint",
     "bashls",
     "stylelint",
+    "vimls",
+    "dockerls",
+    "cssls",
+    "somesass_ls",
+    "taplo",
   }
 end
 
