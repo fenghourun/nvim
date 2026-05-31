@@ -17,6 +17,8 @@ local function setup_lsp()
     "cssls",
     "somesass_ls",
     "taplo",
+    "lua_ls",
+    "json_ls",
   }
 end
 

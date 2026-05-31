@@ -30,7 +30,7 @@ local function setup_plugins()
   require("lazy").setup(plugins)
 
   -- setup lsp Installer before lspconfig
-  require "confs.lspconfig"
+  -- require "confs.lspconfig"
 
   -- Debugger
   require "confs.nvim-dap"

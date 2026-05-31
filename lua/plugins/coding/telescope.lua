@@ -18,6 +18,7 @@ return {
           ".git/",
           "dist/",
           ".turbo/",
+          ".venv/",
           "lazy%-lock.json",
           "target/",
         },
