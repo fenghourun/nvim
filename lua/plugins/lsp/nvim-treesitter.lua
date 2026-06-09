@@ -17,7 +17,6 @@ return {
       "javascript",
       "jsdoc",
       "json",
-      "jsonc",
       "rust",
       "gitcommit",
       "gitignore",
