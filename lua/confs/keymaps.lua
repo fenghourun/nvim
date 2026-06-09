@@ -62,25 +62,14 @@ local function set_keymaps()
 
   -- LSP
   vim.keymap.set("n", "<C-d>", "<Cmd> lua vim.lsp.buf.definition()<cr>", opts)
-  vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next)
-  vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev)
+  vim.keymap.set("n", "<C-j>", function()
+    vim.diagnostic.jump { count = 1, float = true }
+  end)
+  vim.keymap.set("n", "<C-k>", function()
+    vim.diagnostic.jump { count = -1, float = true }
+  end)
   vim.keymap.set("n", "<C-h>", vim.lsp.buf.hover)
 
-  -- Notifications
-  -- vim.keymap.set('', '<Leader>d', "<Cmd> lua require('notify').dismiss() <CR>", { silent = true })
-
-  -- Debug
-  -- vim.keymap.set("n", "<C-b>", "<Cmd> lua require'dap'.toggle_breakpoint() <CR>", opts)
-  -- vim.keymap.set("n", "<S-k>", "<Cmd> lua require'dap'.step_out() <CR>", opts)
-  -- vim.keymap.set("n", "<S-l>", "<Cmd> lua require'dap'.step_into() <CR>", opts)
-  -- vim.keymap.set('n', '<S-j>', '<Cmd> lua require\'dap\'.step_over() <CR>', opts)
-  -- vim.keymap.set("n", "<leader>dc", "<Cmd> DapContinue <CR>")
-
-  -- Dont save deletions
-  -- vim.keymap.set("n", "c", '"_c', { noremap = true })
-  -- vim.keymap.set("n", "d", '"_d', { noremap = true })
-  -- vim.keymap.set("v", "d", '"_d', { noremap = true })
-  -- vim.keymap.set("v", "c", '"_c', { noremap = true })
 end
 
 return set_keymaps

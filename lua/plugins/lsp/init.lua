@@ -9,11 +9,33 @@ return {
   treesitter_context,
   mason,
   {
-    "neovim/nvim-lspconfig",
-    -- event = "LazyFile", TODO
+    "williamboman/mason-lspconfig.nvim",
     dependencies = {
       "mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      "neovim/nvim-lspconfig",
+    },
+    -- Installs the listed servers via Mason, then auto-enables them with
+    -- vim.lsp.enable() (mason-lspconfig `automatic_enable` defaults to true).
+    opts = {
+      ensure_installed = {
+        "pyright",
+        "ruff",
+        "rust_analyzer",
+        "biome",
+        "ts_ls",
+        "terraformls",
+        "gh_actions_ls",
+        "prismals",
+        "bashls",
+        "stylelint_lsp",
+        "vimls",
+        "dockerls",
+        "cssls",
+        "somesass_ls",
+        "taplo",
+        "lua_ls",
+        "jsonls",
+      },
     },
   },
   cmp,

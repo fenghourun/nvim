@@ -1,13 +1,10 @@
 -- Built-in configs
 
-require "latex"
-
 local set_options = require "options"
 local set_autocmds = require "confs.autocmds"
 local set_keymaps = require "confs.keymaps"
 local set_colorscheme = require "colorscheme"
 local setup_plugins = require "plugins"
-local setup_lsp = require "lsp"
 require "confs.commands"
 
 set_colorscheme()
@@ -35,5 +32,4 @@ if vim.g.vscode then
   ]]
 else
   setup_plugins()
-  setup_lsp()
 end

@@ -47,14 +47,7 @@ local function set_options()
 
   -- Chars
   vim.opt.encoding = "utf-8"
-  -- vim.opt.list = true
-  -- vim.opt.listchars:append "space:⋅"
-
-  -- " Note the space after the /
   vim.opt.fillchars = { eob = " ", fold = " " }
-  -- vim.cmd([[
-  --    set fillchars+=fold:
-  -- ]])
 
   vim.opt.clipboard = "unnamedplus"
   vim.opt.scrolloff = 10
@@ -74,7 +67,6 @@ local function set_options()
   -- backup
   vim.opt.backupcopy = "yes"
 
-  -- vim.opt.winbar = "%{%v:lua.require('winbar').eval()%}"
   vim.g.neovide_scale_factor = 1.3
   vim.opt.linespace = 3
   vim.g.neovide_cursor_trail_size = 0

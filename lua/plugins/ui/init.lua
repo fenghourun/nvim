@@ -14,11 +14,6 @@ local function setup_ui_plugins()
       "folke/noice.nvim",
       event = "VeryLazy",
       config = config_noice,
-      -- dependencies = {
-      -- "MunifTanjim/nui.nvim",
-      --   If not available, we use `mini` as the fallback
-      -- "rcarriga/nvim-notify",
-      -- },
     },
     alpha,
     {
