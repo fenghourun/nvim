@@ -7,12 +7,16 @@ return {
     local ts = require "nvim-treesitter"
     ts.setup()
 
-    -- Neovim 0.12 ships a Lua parser that matches its bundled Lua queries.
-    -- Prefer it over stale nvim-treesitter parser builds that can shadow it.
-    for _, parser in ipairs(vim.api.nvim_get_runtime_file("parser/lua.*", true)) do
-      if not parser:find("/nvim%-treesitter/", 1, false) then
-        vim.treesitter.language.add("lua", { path = parser })
-        break
+    -- Neovim 0.12 ships parsers (lua, vim, ...) that match its bundled queries.
+    -- Prefer them over stale nvim-treesitter parser builds that can shadow them
+    -- and cause "Invalid node type" query errors (e.g. the noice cmdline + the
+    -- vim parser hitting the bundled query's "tab" node).
+    for _, lang in ipairs { "lua", "vim" } do
+      for _, parser in ipairs(vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", true)) do
+        if not parser:find("/nvim%-treesitter/", 1, false) then
+          vim.treesitter.language.add(lang, { path = parser })
+          break
+        end
       end
     end
 
