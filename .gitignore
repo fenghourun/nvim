@@ -3,3 +3,4 @@ plugin
 **/*/dist
 .luarc.json
 lua/plugins/meta.lua
+.claude/settings.local.json
