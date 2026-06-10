@@ -7,10 +7,17 @@ return {
     local ts = require "nvim-treesitter"
     ts.setup()
 
-    -- Parsers to keep installed
-    ts.install {
+    -- Neovim 0.12 ships a Lua parser that matches its bundled Lua queries.
+    -- Prefer it over stale nvim-treesitter parser builds that can shadow it.
+    for _, parser in ipairs(vim.api.nvim_get_runtime_file("parser/lua.*", true)) do
+      if not parser:find("/nvim%-treesitter/", 1, false) then
+        vim.treesitter.language.add("lua", { path = parser })
+        break
+      end
+    end
+
+    local ensure_installed = {
       "bash",
-      "lua",
       "luadoc",
       "python",
       "typescript",
@@ -29,6 +36,17 @@ return {
       "vimdoc",
       "regex",
     }
+
+    local missing = {}
+    for _, lang in ipairs(ensure_installed) do
+      if #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", true) == 0 then
+        table.insert(missing, lang)
+      end
+    end
+
+    if #missing > 0 then
+      ts.install(missing)
+    end
 
     -- Enable highlighting + indentation wherever a parser is available
     vim.api.nvim_create_autocmd("FileType", {
