@@ -12,4 +12,18 @@ return function()
     "SnacksPickerBorder",
     { fg = colors.background_dark, background = colors.background_dark }
   )
+  -- Title toggle badges (e.g. the "h"/"i" hidden/ignored flags). Recent Neovim
+  -- dropped the background on DiagnosticVirtualText*, which these link to by
+  -- default, leaving the badges with no background. Give them chip styling.
+  vim.api.nvim_set_hl(0, "SnacksPickerToggle", { fg = colors.background_dark, bg = colors.grey })
+  vim.api.nvim_set_hl(
+    0,
+    "SnacksPickerToggleHidden",
+    { fg = colors.background_dark, bg = colors.cyan }
+  )
+  vim.api.nvim_set_hl(
+    0,
+    "SnacksPickerToggleIgnored",
+    { fg = colors.background_dark, bg = colors.yellow }
+  )
 end
