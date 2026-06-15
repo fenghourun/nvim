@@ -4,3 +4,4 @@ plugin
 .luarc.json
 lua/plugins/meta.lua
 .claude/settings.local.json
+lua/vim/
