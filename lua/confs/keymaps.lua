@@ -70,6 +70,11 @@ local function set_keymaps()
   end)
   vim.keymap.set("n", "<C-h>", vim.lsp.buf.hover)
 
+  -- Toggle inlay hints
+  vim.keymap.set("n", "<leader>th", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+  end, opts)
+
 end
 
 return set_keymaps

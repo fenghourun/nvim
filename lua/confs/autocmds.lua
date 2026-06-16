@@ -54,6 +54,11 @@ local function set_autocmds()
           end,
         })
       end
+
+      -- Enable inlay hints for Lean only (for now)
+      if client.name == "leanls" and client:supports_method "textDocument/inlayHint" then
+        vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+      end
     end,
   })
 end
