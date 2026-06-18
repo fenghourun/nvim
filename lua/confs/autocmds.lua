@@ -39,6 +39,7 @@ local function set_autocmds()
   })
 
   -- Format on save via LSP
+  local format_group = vim.api.nvim_create_augroup("LspFormatOnSave", { clear = true })
   vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
       local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -46,8 +47,12 @@ local function set_autocmds()
         return
       end
 
-      if client.server_capabilities.documentFormattingProvider then
+      if client:supports_method "textDocument/formatting" then
+        -- Clear any existing hook for this buffer first so multiple LSP clients
+        -- attaching (e.g. ts_ls + biome) don't stack and format the buffer twice.
+        vim.api.nvim_clear_autocmds { group = format_group, buffer = args.buf }
         vim.api.nvim_create_autocmd("BufWritePre", {
+          group = format_group,
           buffer = args.buf,
           callback = function()
             vim.lsp.buf.format { bufnr = args.buf, async = false }

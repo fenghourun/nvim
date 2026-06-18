@@ -7,7 +7,7 @@ return function()
   vim.api.nvim_set_hl(0, "CmpBorder", { fg = colors.red })
 
   vim.api.nvim_set_hl(0, "CmpDocBorder", { fg = colors.red, bg = colors.pmenu_bg })
-  vim.api.nvim_set_hl(0, "CmpDocPMenu", { fg = colors.text_primary, bg = colors.pmenu_bg })
+  vim.api.nvim_set_hl(0, "CmpDocPmenu", { fg = colors.text_primary, bg = colors.pmenu_bg })
   vim.api.nvim_set_hl(0, "CmpPmenuBorder", { bg = colors.yellow })
 
   -- Defaults

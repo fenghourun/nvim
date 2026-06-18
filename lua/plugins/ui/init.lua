@@ -22,7 +22,6 @@ local function setup_ui_plugins()
       opts = {},
     },
     gitsigns,
-    { "goolord/alpha-nvim" },
     {
       "echasnovski/mini.nvim",
       version = "*",

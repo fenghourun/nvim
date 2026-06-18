@@ -11,6 +11,8 @@ local base_colors = {
   yellow = "#935f32",
   background_light = "#ffffff",
   background = "#f5f5f5",
+  background1 = "#ececec",
+  background2 = "#e0e0e0",
   background_dark = "#ececec",
   foreground = "#c7c7c7",
   selection = "#cadeb9",
@@ -29,6 +31,8 @@ local M = {
   -- Base Colors
   black = base_colors.black,
   background = base_colors.background,
+  background1 = base_colors.background1,
+  background2 = base_colors.background2,
   background_dark = base_colors.background_dark,
   background_light = base_colors.background_light,
   selection = base_colors.selection,
@@ -52,17 +56,17 @@ local M = {
 
   --  text
   text_primary = base_colors.magenta,
-  text_hightlight = "#333333",
+  text_highlight = "#333333",
 
   -- Component specific colors
   pmenu_sel_bg = base_colors.selection,
-  statusline_bg = base_colors.background2,
+  statusline_bg = base_colors.background_dark,
   folder_bg = "#86a5ff",
   cursor_line_background = base_colors.light_green,
   cursor_line_frontground = base_colors.line,
   git_signs_add = "#487e02",
   git_signs_blame = "#cad5bf",
-  cmp_background = base_colors.background2,
+  cmp_background = base_colors.background_dark,
   telescope_background = base_colors.background_dark,
   noice_background = base_colors.background_dark,
   lualine_background = "#705697",

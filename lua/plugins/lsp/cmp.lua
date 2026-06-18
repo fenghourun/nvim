@@ -10,6 +10,14 @@ return {
   },
   config = function()
     local cmp = require "cmp"
+
+    -- Advertise nvim-cmp's extended completion capabilities (snippet support,
+    -- resolve fields, etc.) to every LSP server. Merged into all configs that
+    -- mason-lspconfig enables via vim.lsp.enable().
+    vim.lsp.config("*", {
+      capabilities = require("cmp_nvim_lsp").default_capabilities(),
+    })
+
     cmp.setup {
       mapping = cmp.mapping.preset.insert {
         ["<S-k>"] = cmp.mapping.scroll_docs(-1),

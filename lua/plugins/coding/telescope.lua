@@ -11,15 +11,15 @@ return {
         selection_caret = "  ",
         entry_prefix = "   ",
         sorting_strategy = "ascending",
-        -- @TODO doesn't work
+        -- Lua patterns matched against the full path (not globs), so no "**/".
         file_ignore_patterns = {
           "node_modules/",
-          "**/package%-lock.json",
-          ".git/",
+          "package%-lock%.json",
+          "%.git/",
           "dist/",
-          ".turbo/",
-          ".venv/",
-          "lazy%-lock.json",
+          "%.turbo/",
+          "%.venv/",
+          "lazy%-lock%.json",
           "target/",
         },
         layout_strategy = "vertical",
@@ -70,8 +70,10 @@ return {
       },
     }
   end,
-  init = function()
-    require("telescope").load_extension "fzf"
+  config = function(_, opts)
+    local telescope = require "telescope"
+    telescope.setup(opts)
+    telescope.load_extension "fzf"
   end,
   dependencies = {
     {
