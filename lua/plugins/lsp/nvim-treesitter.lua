@@ -41,9 +41,17 @@ return {
       "regex",
     }
 
+    -- A language is "missing" if its parser is absent OR its highlights query is
+    -- absent. On the main branch, parsers and queries install separately, so a
+    -- leftover parser from the old layout can exist without its query -- which
+    -- silently attaches the highlighter with nothing to capture (no colors).
+    -- Checking both lets that state self-heal instead of requiring a manual reinstall.
     local missing = {}
     for _, lang in ipairs(ensure_installed) do
-      if #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", true) == 0 then
+      local has_parser = #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", true) > 0
+      local ok, query = pcall(vim.treesitter.query.get, lang, "highlights")
+      local has_query = ok and query ~= nil
+      if not has_parser or not has_query then
         table.insert(missing, lang)
       end
     end
