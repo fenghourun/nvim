@@ -10,9 +10,13 @@ local function set_options()
 
   -- Folding
   function _G.customFoldText()
-    -- local line = vim.fn.getline(vim.v.foldstart)
+    -- Show the folded block's first line so it's obvious what is collapsed,
+    -- then a marker + line count so a fold is unmistakable at a glance.
+    local start_line = vim.fn.getline(vim.v.foldstart)
+    -- Expand tabs so the folded line keeps the surrounding indentation.
+    start_line = start_line:gsub("\t", string.rep(" ", vim.o.tabstop))
     local line_count = vim.v.foldend - vim.v.foldstart + 1
-    return "     " .. line_count .. " lines"
+    return start_line .. "  ⋯  " .. line_count .. " lines "
   end
 
   vim.opt.foldtext = "v:lua.customFoldText()"

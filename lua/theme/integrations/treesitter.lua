@@ -40,7 +40,21 @@ return function()
   vim.api.nvim_set_hl(0, "@constructor", { fg = colors.red })
   vim.api.nvim_set_hl(0, "@label", { fg = colors.red })
 
-  -- Context
-  vim.api.nvim_set_hl(0, "TreeSitterContext", { fg = colors.background })
-  vim.api.nvim_set_hl(0, "TreeSitterContextBottom", { bg = colors.background })
+  -- Context (sticky outer-scope banner at the top of the window).
+  -- NOTE: the plugin's groups are spelled "Treesitter..." (lowercase 's') --
+  -- the old "TreeSitterContext" names were silently ignored, leaving the
+  -- banner indistinguishable from the code below it.
+  -- Sticky outer-scope banner (treesitter-context). The editor background is
+  -- transparent, but an underline separator picks up the syntax colours of the
+  -- code above it and looks inconsistent. Instead use a subtle solid fill
+  -- (context_background -- a touch lighter than the base background, tinted
+  -- toward the theme's greens) to set the banner apart. This is a deliberate,
+  -- minimal exception to the otherwise transparent UI; see README "Transparency".
+  vim.api.nvim_set_hl(0, "TreesitterContext", { bg = colors.context_background })
+  vim.api.nvim_set_hl(
+    0,
+    "TreesitterContextLineNumber",
+    { fg = colors.grey, bg = colors.context_background }
+  )
+  vim.api.nvim_set_hl(0, "TreesitterContextBottom", { bg = colors.context_background })
 end

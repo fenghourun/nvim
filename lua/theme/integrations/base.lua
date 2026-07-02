@@ -26,11 +26,10 @@ local function set_base_colors()
   vim.api.nvim_set_hl(0, "SignColumn", {})
   vim.api.nvim_set_hl(0, "Error", { fg = colors.red, bg = colors.background1 })
   vim.api.nvim_set_hl(0, "ErrorMsg", { fg = colors.red, bg = colors.background1 })
-  vim.api.nvim_set_hl(0, "Folded", { bg = colors.background1 })
   vim.api.nvim_set_hl(0, "Statement", { fg = colors.purple })
   vim.api.nvim_set_hl(0, "Search", { bg = colors.search })
   vim.api.nvim_set_hl(0, "Todo", { fg = colors.black, bg = colors.yellow })
-  vim.api.nvim_set_hl(0, "Folded", { fg = colors.grey })
+  vim.api.nvim_set_hl(0, "Folded", { fg = colors.grey, italic = true })
 
   -- Built in
   vim.api.nvim_set_hl(0, "Type", { fg = colors.yellow })

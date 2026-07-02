@@ -44,6 +44,29 @@ Custom neovim configuration adding IDE-like features
    Give it a minute to finish, then restart Neovim. (Run `:Mason` anytime to
    review or manage installed tools.)
 
+## Transparency
+
+The dark theme (`chalk`) uses a transparent editor background (`background =
+"none"` in `lua/theme/themes/chalk.lua`) so the terminal's own background
+opacity shows through. This is intended to be paired with a terminal configured
+for a translucent window — for example WezTerm's `window_background_opacity`.
+
+Because the background is transparent, highlights that **fill** a large region
+(floating windows, folds, etc.) should reference `colors.background` (which
+resolves to `"none"` in this theme) rather than an opaque colour — filling with
+an opaque colour punches a solid box through the transparency, which looks
+jarring over a translucent window.
+
+The one deliberate exception is the sticky outer-scope banner
+(`treesitter-context`): a transparent banner lets the scrolling code bleed
+through it, and an underline separator instead picks up the syntax colours of
+the code above it. So the banner uses a *subtle* solid fill —
+`context_background`, a touch lighter than the base background and tinted toward
+the theme's greens — to set itself apart with minimal visual weight. Keep any
+such intentional fills subtle and close to the base background.
+
+`chalk` is the only theme; light-mode switching was removed.
+
 ## Lean
 
 The Lean language server is not a Mason package — it ships with the Lean

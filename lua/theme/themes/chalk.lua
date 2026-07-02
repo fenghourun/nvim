@@ -29,6 +29,12 @@ local base_colors = {
 local M = {
   -- Base Colors
   black = base_colors.black,
+  -- background is intentionally transparent ("none") so the terminal's
+  -- background opacity (e.g. WezTerm's window_background_opacity) shows through.
+  -- Highlights that fill a large region (floats, folds) should reference this
+  -- instead of an opaque colour, otherwise they punch a solid box through the
+  -- transparency. Subtle exceptions (e.g. the treesitter-context banner) use a
+  -- fill close to the base background on purpose. See README "Transparency".
   -- background = base_colors.background,
   background = "none",
   background1 = base_colors.background1,
@@ -108,6 +114,9 @@ local M = {
   -- CMP
   cmp_text = base_colors.grey,
   winbar_background = base_colors.background,
+  -- Subtle green-tinted fill for the treesitter-context outer-scope banner:
+  -- a touch lighter than background1 and nudged toward the theme's greens.
+  context_background = "#26302a",
 
   -- Syntax highlighting
   keyword = "#fe8018",

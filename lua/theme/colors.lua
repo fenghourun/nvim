@@ -1,9 +1,5 @@
 return function()
-  if vim.o.background == "light" then
-    local colors = require "theme.themes.quietLight"
-    return colors
-  else
-    local colors = require "theme.themes.chalk"
-    return colors
-  end
+  -- `chalk` (dark) is the only theme in use. Light-mode switching and the
+  -- `quietLight` theme were removed; everything resolves to chalk.
+  return require "theme.themes.chalk"
 end
