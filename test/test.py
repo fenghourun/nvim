@@ -140,6 +140,56 @@ def build_grid(size: int) -> list[Point]:
     return grid
 
 
+class DeepNest:
+    """Intentionally over-nested to test the treesitter-context scope banner.
+
+    Park your cursor on the innermost `print` (around the middle of this class)
+    and the scope chain is: class -> method -> for -> while -> if -> for -> if.
+    With `max_lines = 4` and `trim_scope = "outer"`, the banner should pin only
+    the innermost ~4 headers, not the whole chain. Each block below is padded so
+    the outer headers scroll off-screen, which is exactly when pinning matters.
+    """
+
+    def deeply_nested(self, matrix: list[list[int]]) -> int:
+        # Level 1: method body -- padding so the header is far above.
+        total = 0
+        seen: set[int] = set()
+        checkpoint = 0
+        for row_index, row in enumerate(matrix):
+            # Level 2: for row -- padding.
+            row_total = 0
+            row_flag = row_index % 3 == 0
+            budget = 100
+            while budget > 0:
+                # Level 3: while budget -- padding.
+                budget -= 25
+                pass_marker = budget // 25
+                note = f"pass {pass_marker} on row {row_index}"
+                if row_flag:
+                    # Level 4: if row_flag -- padding.
+                    prefix = "flagged"
+                    weight = 2
+                    scratch = weight * pass_marker
+                    for col_index, value in enumerate(row):
+                        # Level 5: for value -- padding.
+                        adjusted = value * weight
+                        parity = "even" if adjusted % 2 == 0 else "odd"
+                        label = f"{prefix}:{row_index}:{col_index}"
+                        if adjusted not in seen and adjusted > checkpoint:
+                            # Level 6: the innermost block -- watch the banner.
+                            seen.add(adjusted)
+                            row_total += adjusted
+                            checkpoint = adjusted
+                            print(f"{note} {label} -> {parity} {adjusted}")
+                        else:
+                            row_total += 1
+                            print(f"{note} {label} -> skipped")
+                else:
+                    row_total += pass_marker
+            total += row_total
+        return total
+
+
 def main() -> None:
     points = [
         Point(1.0, 2.0),
