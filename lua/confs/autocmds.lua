@@ -47,6 +47,16 @@ local function set_autocmds()
         return
       end
 
+      -- Biome owns formatting for JSON/JS/TS. jsonls and ts_ls also advertise
+      -- textDocument/formatting, and vim.lsp.buf.format runs every capable
+      -- client, so leaving them on means two formatters fight over the buffer
+      -- and whichever applies last wins. Keep them for diagnostics, schema
+      -- validation and completion; drop their formatting.
+      if client.name == "jsonls" or client.name == "ts_ls" then
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end
+
       if client:supports_method "textDocument/formatting" then
         -- Clear any existing hook for this buffer first so multiple LSP clients
         -- attaching (e.g. ts_ls + biome) don't stack and format the buffer twice.
