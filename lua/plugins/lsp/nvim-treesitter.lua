@@ -5,7 +5,12 @@ return {
   build = ":TSUpdate",
   config = function()
     local ts = require "nvim-treesitter"
-    ts.setup()
+    -- The main branch installs both parsers and queries here.  Registering the
+    -- directory is essential: it puts matching parser/query pairs ahead of the
+    -- legacy parser files still present in the plugin directory.
+    ts.setup {
+      install_dir = vim.fn.stdpath "data" .. "/site",
+    }
 
     -- Neovim 0.12 ships parsers (lua, vim, ...) that match its bundled queries.
     -- Prefer them over stale nvim-treesitter parser builds that can shadow them
@@ -41,24 +46,13 @@ return {
       "regex",
     }
 
-    -- A language is "missing" if its parser is absent OR its highlights query is
-    -- absent. On the main branch, parsers and queries install separately, so a
-    -- leftover parser from the old layout can exist without its query -- which
-    -- silently attaches the highlighter with nothing to capture (no colors).
-    -- Checking both lets that state self-heal instead of requiring a manual reinstall.
-    local missing = {}
-    for _, lang in ipairs(ensure_installed) do
-      local has_parser = #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".*", true) > 0
-      local ok, query = pcall(vim.treesitter.query.get, lang, "highlights")
-      local has_query = ok and query ~= nil
-      if not has_parser or not has_query then
-        table.insert(missing, lang)
-      end
-    end
-
-    if #missing > 0 then
-      ts.install(missing)
-    end
+    -- Installing parsers opens download/build watchers.  Do not do that while
+    -- Neovim is starting: concurrent startup watchers can otherwise raise
+    -- EMFILE.  lazy.nvim runs :TSUpdate after plugin updates; this command is
+    -- available for the initial install (or to add the whole configured set).
+    vim.api.nvim_create_user_command("TSInstallConfigured", function()
+      ts.install(ensure_installed, { max_jobs = 1 })
+    end, { desc = "Install this config's Tree-sitter parsers" })
 
     -- Enable highlighting + indentation wherever a parser is available
     vim.api.nvim_create_autocmd("FileType", {
